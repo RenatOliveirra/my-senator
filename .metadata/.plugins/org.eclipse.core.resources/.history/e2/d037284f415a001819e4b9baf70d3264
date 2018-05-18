@@ -1,0 +1,12 @@
+package br.com.mysenator.util;
+
+import java.util.Date;
+
+public abstract class AbstractModel<T> {
+	
+	@Id
+	protected Long Id;
+	
+	protected Date insertionDate;
+
+}

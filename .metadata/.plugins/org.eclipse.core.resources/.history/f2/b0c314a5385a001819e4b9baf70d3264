@@ -1,0 +1,6 @@
+package br.com.mysenator.model;
+
+@Entity
+public class Example {
+
+}

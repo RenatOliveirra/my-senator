@@ -1,0 +1,8 @@
+package br.com.mysenator.model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Example {
+
+}

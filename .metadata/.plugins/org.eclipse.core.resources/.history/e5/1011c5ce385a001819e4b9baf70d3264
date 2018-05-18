@@ -1,0 +1,13 @@
+package br.com.mysenator.model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Example {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+
+}

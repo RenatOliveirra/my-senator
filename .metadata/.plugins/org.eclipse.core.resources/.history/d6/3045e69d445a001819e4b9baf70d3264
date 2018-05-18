@@ -1,0 +1,26 @@
+package br.com.mysenator.example;
+
+import javax.persistence.EntityManager;
+
+import br.com.mysenator.model.Exemple;
+import br.com.mysenator.util.JPAUtil;
+
+public class ExempleFind {
+
+	public static void main(String[] args) {
+		//Find and/or Update
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		em.getTransaction().begin();
+		
+		Exemple ex = em.find(Exemple.class, 1);
+		
+		System.out.println(ex);
+		
+		em.getTransaction().commit();
+		
+		
+		
+	}
+
+}

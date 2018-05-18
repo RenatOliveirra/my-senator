@@ -1,0 +1,64 @@
+package br.com.mysenator.model;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Persistence;
+
+import br.com.mysenator.util.JPAUtil;
+
+@Entity
+public class Example {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+	
+	private String name;
+	
+	private String politicFunction;
+	
+	public Example(String name, String politicFunction){
+		this.name = name;
+		this.politicFunction = politicFunction;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPoliticFunction() {
+		return politicFunction;
+	}
+
+	public void setPoliticFunction(String politicFunction) {
+		this.politicFunction = politicFunction;
+	}
+	
+	public static void main(String[] args) {
+		ExampleInsert ex = new ExampleInsert("Aécio Neves", "Senador");
+		
+		//Create and/or Insert
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		em.getTransaction().begin();
+		em.persist(ex);
+		em.getTransaction().commit();
+		
+		em.close();
+		
+		
+	}
+
+}
