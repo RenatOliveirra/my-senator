@@ -2,22 +2,21 @@ package br.com.mysenator.example;
 
 import javax.persistence.EntityManager;
 
+import br.com.mysenator.dao.ApplicationManagedDAO;
 import br.com.mysenator.model.Exemple;
 import br.com.mysenator.util.JPAUtil;
 
 public class ExempleFind {
 
 	public static void main(String[] args) {
-		//Find and/or Update
+		//Find 
 		EntityManager em = JPAUtil.getEntityManager();
 		
-		em.getTransaction().begin();
+		ApplicationManagedDAO managedDAO = new ApplicationManagedDAO(em);
 		
-		Exemple ex = em.find(Exemple.class, 1);
+		Exemple ex = managedDAO.findById(1, Exemple.class);
 		
 		System.out.println(ex.getName());
-		
-		em.getTransaction().commit();
 		
 		
 	}

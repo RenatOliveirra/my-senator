@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Exemple {
+public class Exemple extends AbstractModel{
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,13 +16,14 @@ public class Exemple {
 	private String name;
 	
 	private String politicFunction;
-
+	
+	@Override
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -30,7 +31,7 @@ public class Exemple {
 	}
 
 	public String getPoliticFunction() {
-		return politicFunction;
+		return this.politicFunction;
 	}
 
 	public void setPoliticFunction(String politicFunction) {
